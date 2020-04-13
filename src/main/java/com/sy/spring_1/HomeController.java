@@ -35,5 +35,21 @@ public class HomeController {
 		
 		return "home"; 
 	}
+
 	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)//root밑에 test페이지가 나오고 method가 get메서드일때만 실행
+	public String test() {
+		System.out.println("Test실행");
+		return "test";
+	}
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+	public String test2() {
+		System.out.println("Test2실행");
+		return "test2";
+	}
+	@RequestMapping(value = "/test3", method = RequestMethod.GET)
+	public String test3() {
+		System.out.println("Test3실행");
+		return "test3";
+	}
 }
