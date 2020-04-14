@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(value="/member/**")
 public class MemberController {
+
+	String path="";
 	
 	@Autowired
 	private MemberService memberService;
@@ -22,10 +24,11 @@ public class MemberController {
 	@RequestMapping(value="memberMyPage")
 	public void memberMyPage() {
 		
+		
 	}
 	
 	@RequestMapping(value= "memberDelete")
-	public void memberDelete() {
+	public void memberDelete( HttpSession session) {
 		System.out.println("Member Delete");
 	}
 	
@@ -37,23 +40,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberJoin",  method= RequestMethod.POST )
-	public void memberJoin2(MemberVO memberVO) {
+	public String memberJoin2(MemberVO memberVO) {
 		// HttpServletRequest
 //		String id = request.getParameter("id");
 //		System.out.println(id);
 //		System.out.println("Member Join Post");
-//		//파라미터 꺼내기
-		
-		//MemberVO의 멤버변수의 값으로 파라미터 값넣기
-		//출력
-		
-		System.out.println(memberVO.getId());
-		System.out.println(memberVO.getPw());
-		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getAge());
-		System.out.println(memberVO.getEmail());
-		System.out.println(memberVO.getPhone());
-		
+
+
+		return "redirect:../";
 	}
 	
 	
@@ -72,16 +66,26 @@ public class MemberController {
 		 return "redirect:../";
 	}
 	
+	@RequestMapping(value="memberLogOut")
+	public void memberLogOut()throws Exception {
+		
+		
+	}
 
 	
 	@RequestMapping(value="memberUpdate")
 	public void memberUpdate() {
 		
+		path="../WEB-INF/views/member/memberUpdate.jsp";
 	}
 	@RequestMapping(value="memberUpdate",  method=RequestMethod.POST)
-	public void memberUpdate2() {
+	public void memberUpdate2( HttpSession session) {
 		System.out.println("Member Update Post");
+		
+		
 	}
+	
+	
 	
 
 }
