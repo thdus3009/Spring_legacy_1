@@ -27,7 +27,7 @@
 			
 	<div class="form-group">
       <label for="id">ID:</label>
-      <input type="text" class="form-control" id="id" placeholder="Enter Id" name="id">
+      <input type="text" class="form-control" id="id" value="${id}" placeholder="Enter Id" name="id">
     </div>
 
     <div class="form-group">
