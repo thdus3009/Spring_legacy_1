@@ -8,10 +8,9 @@
 		<bean class="com.sy.spring_1.member.MemberDAO" id="memberDAO"></bean>
 		
 		<bean class="com.sy.spring_1.member.MemberService" id="memberService">
-		<property name="memberDAO" ref="memberDAO"></property>
+		<!-- 매개변수가 없기때문에 에러난다 > constructor-arg를 넣어준다.-->
+			<constructor-arg name="memberDAO" ref="memberDAO"></constructor-arg>
 		</bean>
-		
-		
 		
 		
 </beans>

@@ -62,18 +62,12 @@ public class MemberController {
 		
 	}
 	@RequestMapping(value="memberLogin", method=RequestMethod.POST)
-	public String memberLogin2(HttpSession session)throws Exception {
+	public String memberLogin2(MemberVO memberVO, HttpSession session)throws Exception {
 		
-		MemberVO memberVO = new MemberVO();
 		memberVO = memberService.memberLogin(memberVO);
 		 
 		//로그인 성공이면 index페이지로 이동 
 		 //실패하면 로그인 실패 alert창에 띄우고 로그인 form 으로 이동
-		 if(memberVO!=null) {
-			 
-		 }else {
-			 
-		 }
 		 
 		 return "redirect:../";
 	}
