@@ -1,5 +1,6 @@
 package com.sy.spring_1.member;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(value="/member/**")
 public class MemberController {
+	
+	private MemberService memberService;
+	
+	public MemberController() {
+		memberService = new MemberService();
+	}
 	
 	
 	@RequestMapping(value="memberMyPage")
@@ -26,8 +33,9 @@ public class MemberController {
 	
 	@RequestMapping(value="memberJoin")
 	public void memberJoin(Model model) { //이런식으로 선언하면 parameter의 스트링을 숫자로 바꾸는 작업을 안해도 된다.
-		
-		model.addAttribute("id","test");//member/memberJoin.jsp로 전달
+		String id = "test";
+		model.addAttribute(id);//member/memberJoin.jsp로 전달
+		//이게 제대로 작동이 안될경우 직접 key, value를 써야한다.
 	}
 	
 	@RequestMapping(value="memberJoin",  method= RequestMethod.POST )
@@ -56,10 +64,20 @@ public class MemberController {
 		
 	}
 	@RequestMapping(value="memberLogin", method=RequestMethod.POST)
-	public String memberLogin2(HttpSession session) {
-		System.out.println("Member Login Post");
+	public String memberLogin2(HttpSession session)throws Exception {
 		
-		return "redirect:../";
+		MemberVO memberVO = new MemberVO();
+		memberVO = memberService.memberLogin(memberVO);
+		 
+		//로그인 성공이면 index페이지로 이동 
+		 //실패하면 로그인 실패 alert창에 띄우고 로그인 form 으로 이동
+		 if(memberVO!=null) {
+			 
+		 }else {
+			 
+		 }
+		 
+		 return "redirect:../";
 	}
 	
 
