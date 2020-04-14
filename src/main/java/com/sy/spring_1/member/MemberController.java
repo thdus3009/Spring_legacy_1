@@ -18,10 +18,6 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	public MemberController() {
-		memberService = new MemberService();
-	}
-	
 	
 	@RequestMapping(value="memberMyPage")
 	public void memberMyPage() {

@@ -4,8 +4,8 @@ public class MemberService {
 
 	private MemberDAO memberDAO;
 	
-	public MemberService() {
-		this.memberDAO = new MemberDAO();
+	public MemberService(MemberDAO memberDAO) {
+		this.memberDAO = memberDAO;
 	}
 	
 	public int memberUpdate(MemberVO memberVO) throws Exception{
