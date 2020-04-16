@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.springframework.stereotype.Repository;
+
 import com.sy.util.DBConnect;
 
+@Repository
 public class MemberDAO {
 
 	//update

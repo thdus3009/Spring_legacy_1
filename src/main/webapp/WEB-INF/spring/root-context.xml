@@ -3,14 +3,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	
+	<!-- Annotation했기때문에 xml은 주석처리 해놓았다. -->
+	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+		<!-- 디폴트 생성자역할을 한다. -->
+		<!-- <bean class="com.sy.spring_1.member.MemberDAO" id="memberDAO"></bean> -->
+		<!-- 아이디가 참조변수를 대신한다. -->
 		
-		<bean class="com.sy.spring_1.member.MemberDAO" id="memberDAO"></bean>
-		
-		<bean class="com.sy.spring_1.member.MemberService" id="memberService">
-		<!-- 매개변수가 없기때문에 에러난다 > constructor-arg를 넣어준다.-->
-			<constructor-arg name="memberDAO" ref="memberDAO"></constructor-arg>
-		</bean>
+		<!-- 매개변수가진 생성자만들기 / 디폴트 생성자가 없기때문에 안쪽에 만들어준다. -->
+		<!-- <bean class="com.sy.spring_1.member.MemberService" id="memberService"> -->
+		<!-- 매개변수가 없기때문에 에러난다 > constructor-arg를 넣어준다.(생성자에 값을 넣어주기!) -->
+			<!-- <constructor-arg name="memberDAO" ref="memberDAO"></constructor-arg> -->
+		<!-- </bean> -->
 		
 		
 </beans>

@@ -1,5 +1,6 @@
 package com.sy.spring_1.member;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+@Controller //new memberController(객체생성)
+
 @RequestMapping(value="/member/**")
 public class MemberController {
 
 	String path="";
 	
-	@Autowired
+	@Autowired //또는 @Inject
 	private MemberService memberService;
 	
 	
@@ -41,10 +43,6 @@ public class MemberController {
 	
 	@RequestMapping(value="memberJoin",  method= RequestMethod.POST )
 	public String memberJoin2(MemberVO memberVO) {
-		// HttpServletRequest
-//		String id = request.getParameter("id");
-//		System.out.println(id);
-//		System.out.println("Member Join Post");
 
 
 		return "redirect:../";

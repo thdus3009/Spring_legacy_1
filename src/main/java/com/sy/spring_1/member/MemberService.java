@@ -1,12 +1,27 @@
 package com.sy.spring_1.member;
 
-public class MemberService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+public class MemberService {
+	@Autowired
 	private MemberDAO memberDAO;
 	//dispacher servlet에서 값을 보내준다.?
-	public MemberService(MemberDAO memberDAO) {
-		this.memberDAO = memberDAO;
-	}
+	
+	/*
+	 * @Autowired public MemberService(MemberDAO memberDAO) { this.memberDAO =
+	 * memberDAO; }
+	 * 
+	 * 
+	 * @Autowired public MemberDAO getMemberDAO() { return memberDAO; }
+	 * 
+	 * 
+	 * @Autowired public void setMemberDAO(MemberDAO memberDAO) { this.memberDAO =
+	 * memberDAO; }
+	 * 
+	 * 
+	 */
 	
 	public int memberUpdate(MemberVO memberVO) throws Exception{
 		return memberDAO.memberUpdate(memberVO);
